@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
+import Home from './pages/Home';
+import HabitTracker from './pages/HabitTracker';
+import Login from './pages/Login';
 
 function App() {
-  const [habits, setHabits] = useState([]);
+  const [currentPage, setCurrentPage] = useState('login'); // Default to login page
 
-  const addHabit = (name) => {
-    const newHabit = { id: Date.now(), name, progress: 0 };
-    setHabits([...habits, newHabit]);
+  const handleLogin = () => {
+    setCurrentPage('home'); // Redirect to home after successful login
   };
 
   return (
     <div>
-      <h1>Pokémon Habit Tracker</h1>
-      <button onClick={() => addHabit('New Habit')}>Add Habit</button>
-      <ul>
-        {habits.map((habit) => (
-          <li key={habit.id}>
-            {habit.name} - Progress: {habit.progress}
-          </li>
-        ))}
-      </ul>
+      {/* Show navigation only if logged in */}
+      {currentPage !== 'login' && (
+        <nav>
+          <button onClick={() => setCurrentPage('home')}>Home</button>
+          <button onClick={() => setCurrentPage('habitTracker')}>Habit Tracker</button>
+        </nav>
+      )}
+
+      {currentPage === 'login' && <Login onLogin={handleLogin} />}
+      {currentPage === 'home' && <Home />}
+      {currentPage === 'habitTracker' && <HabitTracker />}
     </div>
   );
 }

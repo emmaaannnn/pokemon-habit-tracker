@@ -1,4 +1,4 @@
-# pokemon-todo
+# pokemon-habit-tracker
 
 MVP
 1. Basic User Flow

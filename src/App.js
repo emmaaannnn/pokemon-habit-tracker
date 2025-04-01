@@ -2,29 +2,25 @@ import React, { useState } from 'react';
 import Home from './pages/Home';
 import HabitTracker from './pages/HabitTracker';
 import Login from './pages/Login';
+import Navbar from './components/NavBar.js';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login'); // Default to login page
 
-  const handleLogin = () => {
-    setCurrentPage('home'); // Redirect to home after successful login
+  const handlePageSelect = (page) => {
+    setCurrentPage(page); // Update the current page
   };
 
   return (
     <div>
-      {/* Show navigation only if logged in */}
-      {currentPage !== 'login' && (
-        <nav>
-          <button onClick={() => setCurrentPage('home')}>Home</button>
-          <button onClick={() => setCurrentPage('habitTracker')}>Habit Tracker</button>
-        </nav>
-      )}
-
-      {currentPage === 'login' && <Login onLogin={handleLogin} />}
+      <Navbar onSelect={handlePageSelect} /> {/* Navbar on right side */}
       {currentPage === 'home' && <Home />}
       {currentPage === 'habitTracker' && <HabitTracker />}
+      {currentPage === 'settings' && <div>Settings Page</div>}
     </div>
   );
 }
+
 
 export default App;

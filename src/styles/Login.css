@@ -1,0 +1,17 @@
+/* Center the login container */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Light background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+
+/* Error message styling */
+p {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}

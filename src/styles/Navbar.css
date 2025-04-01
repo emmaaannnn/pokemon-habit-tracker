@@ -1,0 +1,34 @@
+/* Style the navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 150px; /* Adjust width to your liking */
+    background-color: #f9e79f; /* Pokémon-esque color */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style buttons in the navbar */
+  .navbar button {
+    background-color: #4caf50; /* Green to match Pokémon menus */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px; /* Spacing between buttons */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  /* Hover effects for buttons */
+  .navbar button:hover {
+    background-color: #45a049; /* Darker green */
+    transform: scale(1.05); /* Slight zoom */
+  }
+  

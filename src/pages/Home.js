@@ -1,10 +1,16 @@
 import React from 'react';
+import Navbar from '../components/NavBar.js';
+import Header from '../components/Header';
 
-const Home = () => {
+
+
+const Home = ({ setCurrentPage }) => {
   return (
     <div>
-      <h1>Welcome to the Pokémon Habit Tracker!</h1>
-      <p>Start tracking your habits today and level up your Pokémon!</p>
+      <Header />
+      <h4>Welcome trainer!</h4>
+      <p>Your habits train not only you, but your Pokémon. Together, you grow stronger and evolve towards greatness!</p>
+      <Navbar onSelect={setCurrentPage} />
     </div>
   );
 };

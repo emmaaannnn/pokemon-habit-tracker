@@ -5,8 +5,8 @@ const Navbar = ({ onSelect }) => {
   return (
     <div className="navbar">
       <button onClick={() => onSelect('home')}>Home</button>
-      <button onClick={() => onSelect('habitTracker')}>Habit Tracker</button>
-      <button onClick={() => onSelect('settings')}>Settings</button>
+      <button onClick={() => onSelect('pokemon')}>Pokemon</button>
+      <button onClick={() => onSelect('habits')}>Habits</button>
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Home from './pages/Home';
-import HabitTracker from './pages/HabitTracker';
 import Login from './pages/Login';
-import Navbar from './components/NavBar.js';
+import Habit from './pages/Habit.js';
 
 
 function App() {
@@ -14,10 +13,10 @@ function App() {
 
   return (
     <div>
-      <Navbar onSelect={handlePageSelect} /> {/* Navbar on right side */}
-      {currentPage === 'home' && <Home />}
-      {currentPage === 'habitTracker' && <HabitTracker />}
-      {currentPage === 'settings' && <div>Settings Page</div>}
+      {currentPage === 'login' && <Login onLogin={() => setCurrentPage('home')} />}
+      {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
+      {currentPage === 'pokemon' && <div>Pokemon Page</div>}
+      {currentPage === 'habits' && <Habit setCurrentPage={setCurrentPage} />}
     </div>
   );
 }

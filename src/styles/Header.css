@@ -1,0 +1,18 @@
+/* Header container */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-bottom: 2px solid #af4c4c; /* Green border */
+  }
+  
+  /* Main title */
+  .header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+  }
+  

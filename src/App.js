@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Habit from './pages/Habit.js';
+import Pokemon from './pages/Pokemon.js';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     <div>
       {currentPage === 'login' && <Login onLogin={() => setCurrentPage('home')} />}
       {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
-      {currentPage === 'pokemon' && <div>Pokemon Page</div>}
+      {currentPage === 'pokemon' && <Pokemon setCurrentPage={setCurrentPage} />}
       {currentPage === 'habits' && <Habit setCurrentPage={setCurrentPage} />}
     </div>
   );

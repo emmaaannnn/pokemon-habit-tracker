@@ -1,3 +1,4 @@
+const userPokemon = require('../data/userPokemon');
 const { getPokemonData } = require('../services/pokeApiService');
 
 // Set Pokémon for a user
@@ -5,39 +6,53 @@ const setUserPokemon = async (req, res) => {
   const { userId, pokemonId } = req.body;
 
   try {
-    // Fetch Pokémon data from the service
+    // Fetch Pokémon data from PokeAPI
     const pokemon = await getPokemonData(pokemonId);
 
-    // Simulate saving user-specific Pokémon (e.g., add level, XP tracking)
-    const userPokemon = {
-      userId,
-      name: pokemon.name,
-      sprite: pokemon.sprite,
-      level: 1,
-      xp: 0,
-      baseExperience: pokemon.base_experience,
-    };
+    // Check if user already has a Pokémon
+    const existingPokemon = userPokemon.find((entry) => entry.userId === userId);
 
-    // Respond with the saved data (without storing locally for now)
-    res.json(userPokemon);
+    if (existingPokemon) {
+      // Update their Pokémon data
+      existingPokemon.pokemon = {
+        ...existingPokemon.pokemon,
+        name: pokemon.name,
+        sprite: pokemon.sprite,
+        level: 1,
+        xp: 0,
+        levelToEvolve: 16, // Example level
+      };
+    } else {
+      // Add new Pokémon for the user
+      userPokemon.push({
+        userId,
+        pokemon: {
+          name: pokemon.name,
+          sprite: pokemon.sprite,
+          level: 1,
+          xp: 0,
+          levelToEvolve: 16,
+        },
+      });
+    }
+
+    res.json({ message: "Pokémon set successfully", pokemon });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// Get Pokémon data for a user
+const userPokemon = require('../data/userPokemon');
+
+// Get Pokémon for a user
 const getUserPokemon = async (req, res) => {
-  const { pokemonId } = req.body;
+  const { userId } = req.body;
 
-  try {
-    // Fetch Pokémon data directly from the service
-    const pokemon = await getPokemonData(pokemonId);
+  const userEntry = userPokemon.find((entry) => entry.userId === userId);
 
-    // Simulate user-specific logic (e.g., add XP/level data from frontend later)
-    res.json(pokemon);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  if (!userEntry) {
+    return res.status(404).json({ message: "No Pokémon found for this user" });
   }
-};
 
-module.exports = { setUserPokemon, getUserPokemon };
+  res.json(userEntry.pokemon);
+};

@@ -1,0 +1,20 @@
+[
+  {
+    "userId": "1",
+    "pokemon": {
+      "name": "Pikachu",
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      "level": 5,
+      "xp": 20
+    }
+  },
+  {
+    "userId": "2",
+    "pokemon": {
+      "name": "Charmander",
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "level": 3,
+      "xp": 10
+    }
+  }
+]

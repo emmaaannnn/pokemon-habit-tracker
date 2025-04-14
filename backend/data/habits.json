@@ -1,0 +1,12 @@
+[
+  {
+    "userId": "1",
+    "name": "Exercise",
+    "isCompleted": false
+  },
+  {
+    "userId": "1",
+    "name": "Read",
+    "isCompleted": true
+  }
+]

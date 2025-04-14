@@ -7,18 +7,34 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Dummy credentials
-    const dummyUser = { username: 'user123', password: 'pikachu123' };
+    try {
+      const response = await fetch('http://localhost:5000/api/users');
 
-    if (username === dummyUser.username && password === dummyUser.password) {
-      onLogin(); // Call the login handler from App.js
-    } else {
-      setErrorMessage('Invalid username or password');
-    }
-  };
+      if (!response.ok) {
+          throw new Error('Failed to fetch');
+      }
+
+      const users = await response.json();
+
+      console.log(users);
+
+      const matchedUser = users.find(
+          (user) => user.username === username && user.password === password
+      );
+
+      if (matchedUser) {
+          onLogin(); // Call the login handler
+      } else {
+          setErrorMessage('Invalid username or password');
+      }
+  } catch (error) {
+      setErrorMessage('Error connecting to the server');
+  }
+};
+
 
   return (
     <div>

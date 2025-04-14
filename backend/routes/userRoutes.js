@@ -1,8 +1,12 @@
 const express = require('express');
-const { signup, login } = require('../controllers/userController');
+const fs = require('fs');
+const path = require('path');
+
 const router = express.Router();
 
-router.post('/signup', signup);
-router.post('/login', login);
+router.get('/', (req, res) => {
+    const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json')));
+    res.json(users);
+});
 
 module.exports = router;

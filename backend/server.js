@@ -1,14 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
-
-const pokemonRoutes = require('./routes/pokemonRoutes');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
-app.use(cors());
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
-app.use('/api/pokemon', pokemonRoutes);
+app.get('/api/users', (req, res) => {
+    const users = JSON.parse(
+        fs.readFileSync(path.join(__dirname, 'data', 'users.json'))
+    );
+    res.json(users);
+});
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(5000, () => console.log('Backend running on http://localhost:5000'));

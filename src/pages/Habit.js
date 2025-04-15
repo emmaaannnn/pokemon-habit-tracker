@@ -15,6 +15,7 @@
 
 // export default Habit;
 
+import '../styles/Habit.css';
 import React, { useState, useEffect } from 'react';
 import { getHabits, completeHabit } from '../services/api';
 

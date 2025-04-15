@@ -1,10 +1,87 @@
-/* Center the login container */
+/* Login.css */
+
+/* General page style */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5; /* Light background */
+  font-family: 'Verdana', sans-serif;
+  background-image: url('https://i.imgur.com/lcsdtFH.jpeg');
+  /* background-image: url('https://i.imgur.com/a1TKOxQ.jpeg'); Pikachu */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
 
+/* Container styling */
+.LoginContainer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  border: 2px solid #fdd835; /* Pikachu yellow border */
+  text-align: center;
+}
+
+
+/* Heading */
+.Header {
+  text-align: center;
+  color: #0073e6; /* Squirtle blue */
+  text-shadow: 2px 2px #fdd835; /* Pikachu yellow shadow */
+  font-size: 28px;
+}
+
+/* Label style */
+.Header2 {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ee6b2f; /* Charmander orange */
+}
+
+/* Input fields */
+.InputBox {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #0073e6; /* Squirtle blue border */
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.InputBox:focus {
+  border-color: #ee6b2f; /* Charmander orange focus effect */
+  outline: none;
+  box-shadow: 0 0 8px rgba(238, 107, 47, 0.6); /* Charmander glow */
+}
+
+/* Button style */
+.LoginButton {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #0073e6; /* Squirtle blue */
+  color: #fff;
+  border: 2px solid #fdd835; /* Pikachu yellow */
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.LoginButton:hover {
+  background-color: #ee6b2f; /* Charmander orange on hover */
+  transform: scale(1.05); /* Slight bounce effect */
+}
+
+/* Error messages */
+.ErrorMessage {
+  margin-top: 10px;
+  color: #b71c1c; /* Error red */
+  text-align: center;
+  font-weight: bold;
+}

@@ -37,30 +37,34 @@ const Login = ({ onLogin }) => {
 
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className='LoginContainer'>
+      <h1 className='Header'>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+
+        {/* username section */}
+        <div className='Header2'>
           <label>Username: </label>
-          <input
+          <input className='InputBox'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
+        
+        {/* password section */}
         <div>
-          <label>Password: </label>
-          <input
+          <label className='Header2'>Password: </label>
+          <input className='InputBox'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button className='LoginButton' type="submit">Login</button>
       </form>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {errorMessage && <p className='ErrorMessage' style={{ color: 'red' }}>{errorMessage}</p>}
     </div>
   );
 };

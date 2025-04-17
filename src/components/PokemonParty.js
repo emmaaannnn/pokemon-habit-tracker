@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PokemonCard from './PokemonCard';
 import { getUserPokemonParty } from '../services/api';
+import '../styles/PokemonParty.css'; // Import CSS for styling
 
 const PokemonParty = () => {
   const [party, setParty] = useState([]); // State to hold the fetched Pokémon party
@@ -35,7 +36,7 @@ const PokemonParty = () => {
   }
 
   return (
-    <div className="pokemon-party">
+    <div>
       {party.map((pokemon, index) => (
         <PokemonCard
           key={index}

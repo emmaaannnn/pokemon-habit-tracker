@@ -1,8 +1,10 @@
+import '../styles/PokemonParty.css'; // Import CSS for styling
+
 import React from 'react';
 
 const PokemonCard = ({ name, level, xp }) => {
   return (
-    <div className="pokemon-card">
+    <div className ="PokemonCard" >
       {name !== 'Empty Slot' ? (
         <div>
           <h3>{name}</h3>

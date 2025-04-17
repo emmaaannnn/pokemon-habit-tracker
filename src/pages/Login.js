@@ -26,35 +26,37 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className='LoginContainer'>
-      <h1 className='Header'>Login</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Username Input */}
-        <div className='Header2'>
-          <label>Username: </label>
-          <input
-            className='InputBox'
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        
-        {/* Password Input */}
-        <div>
-          <label className='Header2'>Password: </label>
-          <input
-            className='InputBox'
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button className='LoginButton' type="submit">Login</button>
-      </form>
-      {errorMessage && <p className='ErrorMessage' style={{ color: 'red' }}>{errorMessage}</p>}
+    <div className='LoginScreen'>
+      <div className='LoginContainer'>
+        <h1 className='Header'>Login</h1>
+        <form onSubmit={handleSubmit}>
+          {/* Username Input */}
+          <div className='Header2'>
+            <label>Username: </label>
+            <input
+              className='InputBox'
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          
+          {/* Password Input */}
+          <div>
+            <label className='Header2'>Password: </label>
+            <input
+              className='InputBox'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button className='LoginButton' type="submit">Login</button>
+        </form>
+        {errorMessage && <p className='ErrorMessage' style={{ color: 'red' }}>{errorMessage}</p>}
+      </div>
     </div>
   );
 };

@@ -1,17 +1,24 @@
 /* Login.css */
 
 /* General page style */
-body {
+html, body {
+  margin: 0; /* Explicitly removes default browser margin */
+  padding: 0; /* Explicitly removes default browser padding */
+  height: 100%; /* Ensures html and body also fit viewport */
+}
+
+
+
+.LoginScreen {
   font-family: 'Verdana', sans-serif;
-  background-image: url('https://i.imgur.com/lcsdtFH.jpeg');
-  /* background-image: url('https://i.imgur.com/a1TKOxQ.jpeg'); Pikachu */
+  background-image: url('https://i.imgur.com/a1TKOxQ.jpeg');
   background-size: cover;
-  margin: 0;
-  padding: 0;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 /* Container styling */

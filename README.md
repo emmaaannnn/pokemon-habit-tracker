@@ -25,14 +25,3 @@ Display Progress
 
 5. Database & Data Persistence
 - Use a free PostgreSQL database (e.g., Supabase or Render) to store habits and progress if you want real persistence.
-
-Development Milestones
-1. Frontend Setup:
-- Create the , , and  components.
-- Design a simple UI with buttons for navigation.
-2. State Management:
-- Use React's  to manage habits, Pokémon XP, and authentication state.
-3. Basic Gamification:
-- Implement the XP system for Pokémon linked to habits.
-4. Testing User Flow:
-- Ensure users can log in, add habits, track progress, and see Pokémon leveling up.

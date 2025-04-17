@@ -1,36 +1,32 @@
-const users = require('../data/users');
+const { readData } = require('../utils/fileHandler');
+const jwt = require('jsonwebtoken');
 
-const signup = async (req, res) => {
-  const { email, password } = req.body;
-  const userExists = users.find((user) => user.email === email);
+// Login controller
+const login = (req, res) => {
+  const { username, password } = req.body;
 
-  if (userExists) {
-    return res.status(400).json({ message: 'User already exists' });
+  try {
+    // Read users from JSON file
+    const users = readData('users.json');
+
+    // Find a matching user
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid username or password' });
+    }
+
+    // Generate a token
+    const token = jwt.sign({ id: user.id, username: user.username }, 'your_jwt_secret', {
+      expiresIn: '1h',
+    });
+
+    res.json({ token, username: user.username, userId: user.id });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
   }
-
-  const newUser = {
-    id: (users.length + 1).toString(),
-    email,
-    password, // In a real scenario, this should be hashed
-    token: null,
-  };
-
-  users.push(newUser);
-  res.status(201).json(newUser);
 };
 
-const login = async (req, res) => {
-  const { email, password } = req.body;
-  const user = users.find((user) => user.email === email && user.password === password);
-
-  if (!user) {
-    return res.status(400).json({ message: 'Invalid credentials' });
-  }
-
-  const token = `token-${user.id}`; // Simulated token
-  user.token = token;
-
-  res.json({ token });
-};
-
-module.exports = { signup, login };
+module.exports = { login };

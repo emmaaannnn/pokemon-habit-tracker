@@ -1,6 +1,6 @@
 import '../styles/Login.css';
 import React, { useState } from 'react';
-
+import { loginUser } from '../services/api'; // Import the API function
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -11,40 +11,29 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/users');
+      // Call the login API
+      const { token, userId, username: loggedInUsername } = await loginUser(username, password);
 
-      if (!response.ok) {
-          throw new Error('Failed to fetch');
-      }
+      // Store token in localStorage or context for authenticated requests
+      localStorage.setItem('token', token);
+      localStorage.setItem('userId', userId);
 
-      const users = await response.json();
-
-      console.log(users);
-
-      const matchedUser = users.find(
-          (user) => user.username === username && user.password === password
-      );
-
-      if (matchedUser) {
-          onLogin(); // Call the login handler
-      } else {
-          setErrorMessage('Invalid username or password');
-      }
+      // Trigger parent component's login handler
+      onLogin(loggedInUsername);
     } catch (error) {
-      setErrorMessage('Error connecting to the server');
+      setErrorMessage('Invalid username or password'); // Better error handling
     }
   };
-
 
   return (
     <div className='LoginContainer'>
       <h1 className='Header'>Login</h1>
       <form onSubmit={handleSubmit}>
-
-        {/* username section */}
+        {/* Username Input */}
         <div className='Header2'>
           <label>Username: </label>
-          <input className='InputBox'
+          <input
+            className='InputBox'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -52,10 +41,11 @@ const Login = ({ onLogin }) => {
           />
         </div>
         
-        {/* password section */}
+        {/* Password Input */}
         <div>
           <label className='Header2'>Password: </label>
-          <input className='InputBox'
+          <input
+            className='InputBox'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

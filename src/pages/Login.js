@@ -30,10 +30,10 @@ const Login = ({ onLogin }) => {
       } else {
           setErrorMessage('Invalid username or password');
       }
-  } catch (error) {
+    } catch (error) {
       setErrorMessage('Error connecting to the server');
-  }
-};
+    }
+  };
 
 
   return (

@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    background-color: #f8f9fa; /* Light background */
+    padding: 10px 20px;
+    border-top: 2px solid #0073e6;
+    border-bottom: 2px solid #0073e6; /* Squirtle blue */
+    width: 295px;
+    left: 0;
+    position: fixed;
+    top: 74px;
+    height: 100%;
+}
+
+
+.HomeButton {
+    display: block;
+    width: 335px;
+    padding: 40px;
+    background-color: hsl(210, 71%, 70%); /* Squirtle blue */
+    color: #fff;
+    border: 2px solid #ffffff; /* Pikachu yellow */
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 35%;
+  }
+
+.PokemonButton {
+    display: block;
+    width: 335px;
+    padding: 40px;
+    background-color: #e0816a; /* Squirtle blue */
+    color: #fff;
+    border: 2px solid #ffffff; /* Pikachu yellow */
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 50%;
+  }
+
+.HabitsButton {
+    display: block;
+    width: 335px;
+    padding: 40px;
+    background-color: #92e26c; /* Squirtle blue */
+    color: #fff;
+    border: 2px solid #ffffff; /* Pikachu yellow */
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 65%;
+  }

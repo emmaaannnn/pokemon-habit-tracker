@@ -22,6 +22,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken'); // For generating tokens
+const pokemonRoutes = require('./routes/pokemonRoutes.js');
 
 const app = express();
 app.use(cors()); // Enable CORS
@@ -59,4 +60,9 @@ app.post('/api/users/login', (req, res) => {
     res.json({ token, userId: user.id, username: user.username });
 });
 
+// Connect Pokémon routes
+app.use('/api/pokemon', pokemonRoutes);
+
+
+const PORT = 5000;
 app.listen(5000, () => console.log('Backend running on http://localhost:5000'));

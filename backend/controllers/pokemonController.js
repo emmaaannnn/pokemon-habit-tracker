@@ -1,61 +1,65 @@
-const { readData, writeData } = require('../utils/fileHandler');
-const { getPokemonData } = require('../services/pokeApiService');
+const { readPokemonData, writePokemonData } = require('../models/pokemonModel');
 
-// Add Pokémon to a user's party or storage
-const setUserPokemon = async (req, res) => {
-  const { userId, pokemonId } = req.body;
+// Fetch the user's Pokémon party and storage
+const getUserPokemon = (req, res) => {
+  const { userId } = req.body;
 
   try {
-    // Fetch Pokémon data from PokeAPI
-    const pokemonData = await getPokemonData(pokemonId);
-    const newPokemon = {
-      name: pokemonData.name,
-      level: 1,
-      xp: 0,
-    };
-
-    // Read current user Pokémon data
-    const userPokemon = readData('userPokemon.json');
-    const userEntry = userPokemon.find((entry) => entry.userId === userId);
+    const data = readPokemonData();
+    const userEntry = data.find((user) => user.userId === userId);
 
     if (!userEntry) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Check if there's an empty slot in the party
+    res.json({ party: userEntry.party, storage: userEntry.storage });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching user Pokémon data' });
+  }
+};
+
+// Add a new Pokémon to the party or storage
+const addPokemon = (req, res) => {
+  const { userId, name, level, xp } = req.body;
+
+  try {
+    const data = readPokemonData();
+    const userEntry = data.find((user) => user.userId === userId);
+
+    if (!userEntry) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
     const emptySlotIndex = userEntry.party.findIndex((slot) => slot === null);
 
     if (emptySlotIndex !== -1) {
       // Add Pokémon to the party
-      userEntry.party[emptySlotIndex] = newPokemon;
+      userEntry.party[emptySlotIndex] = { name, level, xp };
     } else {
       // Add Pokémon to storage
-      userEntry.storage.push(newPokemon);
+      userEntry.storage.push({ name, level, xp });
     }
 
-    // Write updated data to JSON
-    writeData('userPokemon.json', userPokemon);
-
-    res.json({ message: 'Pokémon added successfully', userPokemon: userEntry });
+    writePokemonData(data);
+    res.json({ message: 'Pokémon added successfully', userEntry });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: 'Error adding Pokémon' });
   }
 };
 
-// Swap a Pokémon between party and storage
+// Swap Pokémon between party and storage
 const swapPokemon = (req, res) => {
   const { userId, partyIndex, storageIndex } = req.body;
 
   try {
-    // Read current user Pokémon data
-    const userPokemon = readData('userPokemon.json');
-    const userEntry = userPokemon.find((entry) => entry.userId === userId);
+    const data = readPokemonData();
+    const userEntry = data.find((user) => user.userId === userId);
 
     if (!userEntry) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Validate partyIndex and storageIndex
+    // Validate indices
     if (partyIndex < 0 || partyIndex >= userEntry.party.length) {
       return res.status(400).json({ message: 'Invalid party index' });
     }
@@ -63,20 +67,18 @@ const swapPokemon = (req, res) => {
       return res.status(400).json({ message: 'Invalid storage index' });
     }
 
-    // Perform swap
+    // Perform the swap
     const partyPokemon = userEntry.party[partyIndex];
     const storagePokemon = userEntry.storage[storageIndex];
 
     userEntry.party[partyIndex] = storagePokemon;
     userEntry.storage[storageIndex] = partyPokemon;
 
-    // Write updated data to JSON
-    writeData('userPokemon.json', userPokemon);
-
-    res.json({ message: 'Pokémon swapped successfully', userPokemon: userEntry });
+    writePokemonData(data);
+    res.json({ message: 'Pokémon swapped successfully', userEntry });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: 'Error swapping Pokémon' });
   }
 };
 
-module.exports = { setUserPokemon, swapPokemon };
+module.exports = { getUserPokemon, addPokemon, swapPokemon };

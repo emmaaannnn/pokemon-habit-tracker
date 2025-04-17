@@ -1,12 +1,17 @@
-const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
-const pokemonSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  name: { type: String, required: true },
-  sprite: { type: String, required: true },
-  level: { type: Number, default: 1 },
-  xp: { type: Number, default: 0 },
-  levelToEvolve: { type: Number, required: true },
-});
+// Read JSON data from userPokemon.json
+const readPokemonData = () => {
+  const filepath = path.resolve(__dirname, '../data/userPokemon.json');
+  const data = fs.readFileSync(filepath, 'utf-8');
+  return JSON.parse(data);
+};
 
-module.exports = mongoose.model('Pokemon', pokemonSchema);
+// Write JSON data to userPokemon.json
+const writePokemonData = (content) => {
+  const filepath = path.resolve(__dirname, '../data/userPokemon.json');
+  fs.writeFileSync(filepath, JSON.stringify(content, null, 2));
+};
+
+module.exports = { readPokemonData, writePokemonData };

@@ -1,4 +1,18 @@
 const { readPokemonData, writePokemonData } = require('../models/pokemonModel');
+const { getPokemonDetails } = require('../services/pokeApiService');
+
+
+// Endpoint to get detailed Pokémon data
+const getPokemonData = async (req, res) => {
+  const { pokemonName } = req.params;
+
+  try {
+    const pokemonDetails = await getPokemonDetails(pokemonName);
+    res.json(pokemonDetails);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch Pokémon data' });
+  }
+};
 
 // Fetch the user's Pokémon party and storage
 const getUserPokemon = (req, res) => {
@@ -81,4 +95,4 @@ const swapPokemon = (req, res) => {
   }
 };
 
-module.exports = { getUserPokemon, addPokemon, swapPokemon };
+module.exports = { getUserPokemon, addPokemon, swapPokemon, getPokemonData };

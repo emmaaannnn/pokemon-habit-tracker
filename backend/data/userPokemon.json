@@ -3,15 +3,15 @@
     "userId": "1",
     "party": [
       { "name": "Pikachu", "level": 10, "xp": 45 },
-      null,
-      null,
-      null,
+      { "name": "Bulbasaur", "level": 12, "xp": 25 },
+      { "name": "Charmander", "level": 11, "xp": 10 },
+      { "name": "Squirtle", "level": 15, "xp": 90 },
       null,
       null
     ],
     "storage": [
-      { "name": "Charmander", "level": 5, "xp": 12 },
-      { "name": "Bulbasaur", "level": 7, "xp": 25 }
+      { "name": "Eevee", "level": 5, "xp": 12 },
+      { "name": "Metapod", "level": 7, "xp": 25 }
     ]
   }
 ]

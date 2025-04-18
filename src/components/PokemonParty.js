@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PokemonCard from './PokemonCard';
 import { getUserPokemonParty } from '../services/api';
+import { getPokemonDetails } from '../services/pokeApiService';
 import '../styles/PokemonParty.css'; // Import CSS for styling
 
 const PokemonParty = () => {
@@ -11,21 +12,39 @@ const PokemonParty = () => {
   const userId = localStorage.getItem('userId'); // Get userId from localStorage
 
   useEffect(() => {
-    const fetchParty = async () => {
+    const fetchPartyWithDetails = async () => {
       try {
         // Fetch Pokémon party from the backend
         const data = await getUserPokemonParty(userId);
-        setParty(data.party); // Set the fetched party data to state
+
+        // Fetch additional details for each Pokémon using their names
+        const detailedParty = await Promise.all(
+          data.party.map(async (pokemon) => {
+            if (pokemon) {
+              const details = await getPokemonDetails(pokemon.name); // Fetch details from PokéAPI
+              return {
+                ...pokemon, // Retain original party info
+                sprite: details.sprite,
+                levelToEvolve: details.levelToEvolve,
+                xpToLevelUp: details.xpToLevelUp,
+              };
+            }
+            return null; // Keep empty slots as null
+          })
+        );
+
+        setParty(detailedParty); // Set enriched data to state
         setLoading(false);
       } catch (err) {
         console.error(err.message);
-        setError('Failed to load Pokémon Party. Please try again.');
+        setError('Failed to load Pokémon Party details. Please try again.');
         setLoading(false);
       }
     };
 
-    fetchParty(); // Trigger fetching when component mounts
+    fetchPartyWithDetails(); // Trigger fetching when component mounts
   }, [userId]);
+
 
   if (loading) {
     return <p>Loading your Pokémon Party...</p>; // Show loading state
@@ -41,6 +60,7 @@ const PokemonParty = () => {
         <PokemonCard
           key={index}
           name={pokemon ? pokemon.name : 'Empty Slot'}
+          sprite={pokemon ? pokemon.sprite : ''}
           level={pokemon ? pokemon.level : ''}
           xp={pokemon ? pokemon.xp : ''}
         />

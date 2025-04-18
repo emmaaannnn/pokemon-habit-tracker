@@ -20,20 +20,11 @@
     width: 295px;
 }
 
-.HomeContainer {
+.PartySection {
     display: flex;
     position: fixed;
     align-items: center;
-    right: 0;
+    right: 60%;
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
-}
-
-.HomePokemonParty {
-    display: flex;
-    position: absolute;
-    flex-direction: column; /* Arrange cards vertically */
-    right: 10%; /* Align cards to the right */
-    top: 50%;
-    box-sizing: border-box;
 }

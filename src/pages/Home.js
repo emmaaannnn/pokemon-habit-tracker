@@ -16,8 +16,9 @@ const Home = ({ setCurrentPage }) => {
         <p>Your habits train not only you, but your Pokémon. Together, you grow stronger and evolve towards greatness!</p>
       </div>
 
-      <div className='HomeContainer'>
-        <h1> HELLO BRO </h1>
+      <h1 className='HomeTitle'>Your Pokémon Party</h1>
+
+      <div className='PartySection'>
         <PokemonParty className="HomePokemonParty"/>
       </div>
     </div>

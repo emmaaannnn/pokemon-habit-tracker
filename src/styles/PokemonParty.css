@@ -3,22 +3,27 @@
     border: 2px solid #ddd; /* Light border to define the box */
     border-radius: 8px; /* Rounded corners for a polished look */
     padding: 15px; /* Space inside the box */
-    margin-bottom: 10%; /* Space between cards */
+    margin-bottom: 5%; /* Space between cards */
     background-color: #f8f9fa; /* Subtle background color */
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    width: 250px; /* Fixed width for all cards */
+    width: 150px; /* Fixed width for all cards */
     text-align: center; /* Center-align text inside the card */
     font-family: Arial, sans-serif; /* Set a clean font */
+    height: 150px; /* Fixed height for all cards */
   }
   
-  .PokemonCard h3 {
-    font-size: 20px;
+  .PokemonCard h4 {
+    font-size: 18px;
     color: #333; /* Darker text for visibility */
-    margin-bottom: 10px;
+    margin: 1px 0;
+  }
+
+  .PokemonCard img {
+    margin: 1px 0;
   }
   
   .PokemonCard p {
-    margin: 5px 0; /* Add spacing between lines */
+    margin: 1px 0;
     font-size: 14px;
     color: #666; /* Lighter text color for secondary details */
   }

@@ -19,7 +19,7 @@ const Home = ({ setCurrentPage }) => {
       <h1 className='HomeTitle'>Your Pokémon Party</h1>
 
       <div className='PartySection'>
-        <PokemonParty className="HomePokemonParty"/>
+        <PokemonParty/>
       </div>
     </div>
   );

@@ -21,11 +21,11 @@
 }
   
 
-.PokemonPokemonParty {
-    display: flex;
-    position: absolute;
-    flex-direction: column; /* Arrange cards vertically */
-    right: 10%; /* Align cards to the right */
-    top: 50%;
-    box-sizing: border-box;
-  }
+.NoHabitsParty {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+}

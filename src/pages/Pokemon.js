@@ -14,9 +14,8 @@ const Pokemon = ({ setCurrentPage }) => {
         <p>These are your pokemon</p>
       </div>
 
-      <div className='PokemonContainer'>
-        <h1> Page 2 BRO </h1>
-        <PokemonParty className="PokemonPokemonParty"/>
+      <div className='NoHabitsParty'>
+        <PokemonParty/>
       </div>
     </div>
   );

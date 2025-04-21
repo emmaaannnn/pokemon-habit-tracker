@@ -1,12 +1,12 @@
 [
   {
-    "id": "1",
+    "userId": "1",
     "username": "user123",
     "password": "password123",
     "token": null
   },
   {
-    "id": "2",
+    "userId": "2",
     "username": "ash123",
     "password": "pikachu1",
     "token": null

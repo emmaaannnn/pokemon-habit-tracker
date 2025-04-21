@@ -1,6 +1,6 @@
 const express = require('express');
-const { getUserPokemon, addPokemon, swapPokemon } = require('../controllers/pokemonController.js');
-const { getPokemonData } = require('../controllers/pokemonController.js');
+const { getUserPokemon, addPokemon, swapPokemon } = require('../controllers/pokemonController');
+const { getPokemonData } = require('../controllers/pokemonController');
 
 
 const router = express.Router();

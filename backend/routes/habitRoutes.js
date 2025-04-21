@@ -1,5 +1,5 @@
 const express = require('express');
-const { fetchUserHabits, updateHabit, deleteHabit } = require('../controllers/habitController');
+const { fetchUserHabits, updateHabit, deleteHabit } = require('../controllers/habitController.js');
 
 const router = express.Router();
 

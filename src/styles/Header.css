@@ -1,4 +1,4 @@
-/* Header container */
+
 .header {
     position: fixed;
     top: 0;
@@ -9,7 +9,6 @@
     border-bottom: 2px solid #af4c4c; /* Green border */
   }
   
-  /* Main title */
   .header h1 {
     margin: 0;
     font-size: 28px;

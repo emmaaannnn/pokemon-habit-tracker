@@ -1,0 +1,35 @@
+{
+  "habits": [
+    {
+      "habitId": 1,
+      "name": "Morning Exercise",
+      "linkedPokemon": {
+        "name": "Pikachu",
+        "pokemonId": 25
+      },
+      "streak": 5,
+      "xpReward": 50,
+      "completionHistory": {
+        "daily": {
+          "2025-04-13": true,
+          "2025-04-14": false,
+          "2025-04-15": true
+        }
+      },
+      "habitId": 2,
+      "name": "Reading Before Bed",
+      "linkedPokemon": {
+        "name": "Charmander",
+        "pokemonId": 4
+      },
+      "streak": 10,
+      "xpReward": 30,
+      "completionHistory": {
+        "daily": {
+          "2025-04-10": true,
+          "2025-04-11": true
+        }
+      }  
+    }
+  ]
+}

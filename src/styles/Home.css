@@ -28,3 +28,12 @@
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
 }
+
+.HabitSection {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+}

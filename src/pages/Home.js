@@ -3,6 +3,7 @@ import Navbar from '../components/NavBar.js';
 import Header from '../components/Header';
 import PokemonParty from '../components/PokemonParty.js';
 import '../styles/Home.css';
+import HabitWeeklyList from '../components/HabitWeeklyList.js';
 
 
 
@@ -20,6 +21,9 @@ const Home = ({ setCurrentPage }) => {
 
       <div className='PartySection'>
         <PokemonParty/>
+      </div>
+      <div className='HabitSection'>
+        <HabitWeeklyList/>
       </div>
     </div>
   );

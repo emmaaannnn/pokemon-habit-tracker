@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken'); // For generating tokens
 const pokemonRoutes = require('./routes/pokemonRoutes.js');
+const habitRoutes = require('./routes/habitRoutes');
 
 const app = express();
 app.use(cors()); // Enable CORS
@@ -43,6 +44,9 @@ app.post('/api/users/login', (req, res) => {
 
 // Connect Pokémon routes
 app.use('/api/pokemon', pokemonRoutes);
+
+// Habit routes
+app.use('/api/users', habitRoutes);
 
 
 const PORT = 5000;

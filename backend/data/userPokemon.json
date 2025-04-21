@@ -13,5 +13,20 @@
       { "name": "Eevee", "level": 5, "xp": 12 },
       { "name": "Metapod", "level": 7, "xp": 25 }
     ]
+  },
+  {
+    "userId": "2",
+    "party": [
+      { "name": "Pikachu", "level": 10, "xp": 45 },
+      { "name": "Arceus", "level": 12, "xp": 25 },
+      { "name": "Lugia", "level": 11, "xp": 10 },
+      { "name": "Ceruledge", "level": 15, "xp": 90 },
+      null,
+      null
+    ],
+    "storage": [
+      { "name": "Eevee", "level": 5, "xp": 12 },
+      { "name": "Metapod", "level": 7, "xp": 25 }
+    ]
   }
 ]

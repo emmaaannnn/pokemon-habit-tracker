@@ -1,19 +1,11 @@
 import React from 'react';
 
 const HabitWeeklyCard = ({ habit }) => {
-  const { name, linkedPokemon, weeklyCompletion } = habit;
+  const { name, weeklyCompletion } = habit;
 
   return (
     <div className="HabitWeeklyCard">
       <h2>{name}</h2>
-      <div className="PokemonInfo">
-        <p>Linked Pokémon: {linkedPokemon.name}</p>
-        <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${linkedPokemon.pokemonId}.png`}
-          alt={linkedPokemon.name}
-          className="PokemonSprite"
-        />
-      </div>
       <table className="WeeklyProgress">
         <thead>
           <tr>

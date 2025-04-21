@@ -1,4 +1,4 @@
-const { getHabitsForUser, saveHabitsForUser } = require('../models/habitModel');
+const { getHabitsForUser, saveHabitsForUser } = require('../models/habitModel.js');
 
 // Fetch habits for a specific user
 const fetchUserHabits = (req, res) => {

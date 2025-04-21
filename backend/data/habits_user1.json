@@ -15,7 +15,9 @@
           "2025-04-14": false,
           "2025-04-15": true
         }
-      },
+      }
+    },
+    {
       "habitId": 2,
       "name": "Reading Before Bed",
       "linkedPokemon": {
@@ -29,7 +31,7 @@
           "2025-04-10": true,
           "2025-04-11": true
         }
-      }  
+      }
     }
   ]
 }

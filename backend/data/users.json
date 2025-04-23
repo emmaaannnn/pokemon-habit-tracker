@@ -11,11 +11,6 @@
   },
   {
     "userId": 3,
-    "username": "test",
-    "password": "hi"
-  },
-  {
-    "userId": 4,
     "username": "123",
     "password": "123"
   }

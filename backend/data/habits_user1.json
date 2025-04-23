@@ -3,10 +3,7 @@
     {
       "habitId": 1,
       "name": "Morning Exercise",
-      "linkedPokemon": {
-        "name": "Pikachu",
-        "pokemonId": 25
-      },
+      "linkedSlot": 1,
       "streak": 5,
       "xpReward": 50,
       "completionHistory": {
@@ -18,12 +15,35 @@
       }
     },
     {
-      "habitId": 2,
+      "habitId": 3,
       "name": "Reading Before Bed",
-      "linkedPokemon": {
-        "name": "Charmander",
-        "pokemonId": 4
-      },
+      "linkedSlot": 2,
+      "streak": 10,
+      "xpReward": 30,
+      "completionHistory": {
+        "daily": {
+          "2025-04-10": true,
+          "2025-04-11": true
+        }
+      }
+    },
+    {
+      "habitId": 2,
+      "name": "Drink Water",
+      "linkedSlot": 3,
+      "streak": 10,
+      "xpReward": 30,
+      "completionHistory": {
+        "daily": {
+          "2025-04-10": true,
+          "2025-04-11": true
+        }
+      }
+    },
+    {
+      "habitId": 4,
+      "name": "Eat Healthy",
+      "linkedSlot": 4,
       "streak": 10,
       "xpReward": 30,
       "completionHistory": {

@@ -40,8 +40,8 @@ app.post('/api/users/login', (req, res) => {
             return res.status(401).json({ message: 'Invalid username or password' });
         }
 
-        // Respond with token and user details
-        res.json({ token, userId: user.userId, username: user.username });
+        // Respond with user details
+        res.json({ userId: user.userId, username: user.username });
     } catch (error) {
         console.error('Error during login:', error.message);
         res.status(500).json({ message: 'Server error during login' });

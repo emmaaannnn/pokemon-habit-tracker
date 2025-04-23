@@ -16,6 +16,10 @@ const Login = ({ onLogin }) => {
       // Handle user registration
       try {
         const result = await registerUser(username, password);
+
+        // Store userId permanently in localStorage
+        localStorage.setItem('userId', result.userId);
+
         setSuccessMessage(result.message); // Show success message from the server
         setIsRegistering(false); // Switch back to login mode after successful registration
         setUsername('');

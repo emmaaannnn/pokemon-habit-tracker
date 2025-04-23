@@ -1,4 +1,4 @@
-const { addUser, getAllUsers } = require('../models/userModel');
+const { addUser, getAllUsers, addPokemonDataForUser } = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
 // Controller to register a new user
@@ -22,6 +22,9 @@ const register = (req, res) => {
 
     // Add new user to JSON file
     const newUser = addUser({ username, password });
+
+    addPokemonDataForUser(newUser.userId);
+
     res.status(201).json({ message: 'User registered successfully!', userId: newUser.userId });
   } catch (error) {
     console.error('Error registering user:', error.message);

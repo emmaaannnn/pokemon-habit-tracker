@@ -18,6 +18,7 @@ export const loginUser = async (username, password) => {
   }
 };
 
+// User registration
 export const registerUser = async (username, password) => {
   try {
     const response = await axios.post('http://localhost:5000/api/users/register', {

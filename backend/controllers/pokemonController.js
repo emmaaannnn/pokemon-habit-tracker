@@ -20,7 +20,7 @@ const getUserPokemon = (req, res) => {
 
   try {
     const data = readPokemonData();
-    const userEntry = data.find((user) => user.userId === userId);
+    const userEntry = data.find((user) => user.userId === Number(userId));
 
     if (!userEntry) {
       return res.status(404).json({ message: 'User not found' });
@@ -38,7 +38,7 @@ const addPokemon = (req, res) => {
 
   try {
     const data = readPokemonData();
-    const userEntry = data.find((user) => user.userId === userId);
+    const userEntry = data.find((user) => user.userId === Number(userId));
 
     if (!userEntry) {
       return res.status(404).json({ message: 'User not found' });
@@ -67,7 +67,7 @@ const swapPokemon = (req, res) => {
 
   try {
     const data = readPokemonData();
-    const userEntry = data.find((user) => user.userId === userId);
+    const userEntry = data.find((user) => user.userId === Number(userId));
 
     if (!userEntry) {
       return res.status(404).json({ message: 'User not found' });

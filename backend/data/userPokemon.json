@@ -1,6 +1,6 @@
 [
   {
-    "userId": "1",
+    "userId": 1,
     "party": [
       { "name": "Pikachu", "level": 10, "xp": 45 },
       { "name": "Bulbasaur", "level": 12, "xp": 25 },
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "userId": "2",
+    "userId": 2,
     "party": [
       { "name": "Pikachu", "level": 10, "xp": 45 },
       { "name": "Arceus", "level": 12, "xp": 25 },

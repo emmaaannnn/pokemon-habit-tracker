@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import HabitWeeklyCard from './HabitWeeklyCard.js'; // Import the HabitWeeklyCard component
-import { fetchUserHabits } from '../services/api.js'; // Import the fetch habits API function
+import HabitWeeklyCard from './HabitWeeklyCard';
+import { fetchUserHabits } from '../services/api';
 
 const HabitWeeklyList = ({ userId }) => {
   const [habits, setHabits] = useState([]);
-  const [weeklyData, setWeeklyData] = useState([]);
   const [error, setError] = useState('');
 
   // Utility function to get current week's dates
@@ -34,8 +33,7 @@ const HabitWeeklyList = ({ userId }) => {
           return { ...habit, weeklyCompletion };
         });
 
-        setHabits(userHabits.habits);
-        setWeeklyData(weeklyProgress);
+        setHabits(weeklyProgress); // Updated state includes weekly completion data
       } catch (error) {
         console.error('Error fetching habits:', error);
         setError('Failed to fetch habits.');
@@ -49,7 +47,7 @@ const HabitWeeklyList = ({ userId }) => {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
 
-  if (weeklyData.length === 0) {
+  if (habits.length === 0) {
     return <p>No habits to display.</p>;
   }
 
@@ -57,8 +55,8 @@ const HabitWeeklyList = ({ userId }) => {
     <div>
       <h1>Weekly Habit Tracker</h1>
       <div className="HabitWeeklyList">
-        {weeklyData.map((habit) => (
-          <HabitWeeklyCard key={habit.habitId} habit={habit} /> // Render a card for each habit
+        {habits.map((habit) => (
+          <HabitWeeklyCard key={habit.habitId} habit={habit} />
         ))}
       </div>
     </div>

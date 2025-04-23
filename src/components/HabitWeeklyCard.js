@@ -9,17 +9,30 @@ const HabitWeeklyCard = ({ habit }) => {
       <table className="WeeklyProgress">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Completed</th>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
           </tr>
         </thead>
         <tbody>
-          {weeklyCompletion.map((day) => (
-            <tr key={day.date}>
-              <td>{day.date}</td>
-              <td>{day.completed ? '✔️' : '❌'}</td>
-            </tr>
-          ))}
+          <tr>
+            {/* Dates under each day */}
+            {weeklyCompletion.map((day) => (
+              <td key={`date-${day.date}`}>{day.date}</td>
+            ))}
+          </tr>
+          <tr>
+            {/* Tick or cross under each date */}
+            {weeklyCompletion.map((day) => (
+              <td key={`completed-${day.date}`}>
+                {day.completed ? '✔️' : '❌'}
+              </td>
+            ))}
+          </tr>
         </tbody>
       </table>
     </div>

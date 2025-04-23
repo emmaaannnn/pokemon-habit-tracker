@@ -8,6 +8,8 @@ import HabitWeeklyList from '../components/HabitWeeklyList.js';
 
 
 const Home = ({ setCurrentPage }) => {
+  const userId = localStorage.getItem('userId');
+
   return (
     <div className='HomeScreen'>
       <Header/>
@@ -23,7 +25,7 @@ const Home = ({ setCurrentPage }) => {
         <PokemonParty/>
       </div>
       <div className='HabitSection'>
-        <HabitWeeklyList/>
+        <HabitWeeklyList userId={userId} />
       </div>
     </div>
   );

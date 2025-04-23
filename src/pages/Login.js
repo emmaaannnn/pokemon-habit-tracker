@@ -17,9 +17,6 @@ const Login = ({ onLogin }) => {
       try {
         const result = await registerUser(username, password);
 
-        // Store userId permanently in localStorage
-        localStorage.setItem('userId', result.userId);
-
         setSuccessMessage(result.message); // Show success message from the server
         setIsRegistering(false); // Switch back to login mode after successful registration
         setUsername('');
@@ -32,8 +29,7 @@ const Login = ({ onLogin }) => {
       try {
         const { token, userId, username: loggedInUsername } = await loginUser(username, password);
 
-        // Store token and userId in localStorage
-        localStorage.setItem('token', token);
+        // Store userId in localStorage
         localStorage.setItem('userId', userId);
 
         // Trigger parent component's login handler

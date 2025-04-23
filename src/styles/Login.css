@@ -92,3 +92,22 @@ html, body {
   text-align: center;
   font-weight: bold;
 }
+
+/* Button style */
+.ToggleButton {
+  display: block;
+  margin: 5px auto; /* Centers the button horizontally */
+  width: 50%;
+  padding: 12px 0;
+  background-color: #ee6b2f;
+  color: #fff;
+  border: 2px solid #fdd835; 
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ToggleButton:hover {
+  background-color: #66d644; /* Charmander orange on hover */
+  transform: scale(1.05); /* Slight bounce effect */
+}

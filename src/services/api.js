@@ -18,6 +18,18 @@ export const loginUser = async (username, password) => {
   }
 };
 
+export const registerUser = async (username, password) => {
+  try {
+    const response = await axios.post('http://localhost:5000/api/users/register', {
+      username,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error registering user:', error.response?.data || error.message);
+    throw error;
+  }
+};
 
 // Fetch user's Pokémon party
 export const getUserPokemonParty = async (userId) => {

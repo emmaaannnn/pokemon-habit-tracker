@@ -8,9 +8,9 @@
       "xpReward": 50,
       "completionHistory": {
         "daily": {
-          "2025-04-13": true,
-          "2025-04-14": false,
-          "2025-04-15": true
+          "2025-04-26": true,
+          "2025-04-15": false,
+          "2025-04-24": true
         }
       }
     },
@@ -22,8 +22,8 @@
       "xpReward": 30,
       "completionHistory": {
         "daily": {
-          "2025-04-10": true,
-          "2025-04-11": true
+          "2025-04-25": true,
+          "2025-04-23": true
         }
       }
     },
@@ -35,8 +35,8 @@
       "xpReward": 30,
       "completionHistory": {
         "daily": {
-          "2025-04-10": true,
-          "2025-04-11": true
+          "2025-04-21": true,
+          "2025-04-20": true
         }
       }
     },
@@ -48,10 +48,12 @@
       "xpReward": 30,
       "completionHistory": {
         "daily": {
-          "2025-04-10": true,
-          "2025-04-11": true
+          "2025-04-25": true,
+          "2025-04-22": true
         }
       }
-    }
+    },
+    null,
+    null
   ]
 }

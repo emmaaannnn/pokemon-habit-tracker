@@ -1,6 +1,16 @@
 import React from 'react';
+import '../styles/HabitWeeklyList.css';
 
 const HabitWeeklyCard = ({ habit }) => {
+  // Check if the habit is null or invalid
+  if (!habit) {
+    return (
+      <div className="HabitWeeklyCard">
+        <p>No Habit in this spot!</p>
+      </div>
+    );
+  }
+
   const { name, weeklyCompletion } = habit;
 
   return (

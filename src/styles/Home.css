@@ -24,7 +24,7 @@
     display: flex;
     position: fixed;
     align-items: center;
-    right: 60%;
+    left: 350px;
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
 }

@@ -1,4 +1,4 @@
-import '../styles/PokemonParty.css'; // Import CSS for styling
+import '../styles/PokemonParty.css';
 
 import React from 'react';
 

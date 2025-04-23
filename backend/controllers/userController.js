@@ -49,6 +49,7 @@ const register = (req, res) => {
       console.log('Successfully updated userPokemon.json!');
     };
 
+    addPokemonDataForUser(newUser.userId);
 
     res.status(201).json({ message: 'User registered successfully!', userId: newUser.userId });
   } catch (error) {

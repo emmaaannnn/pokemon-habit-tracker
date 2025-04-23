@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const jwt = require('jsonwebtoken'); // For generating tokens
 const pokemonRoutes = require('./routes/pokemonRoutes.js');
 const habitRoutes = require('./routes/habitRoutes.js');
 const userRoutes = require('./routes/userRoutes.js'); // User routes
@@ -40,11 +39,6 @@ app.post('/api/users/login', (req, res) => {
             // User not found or credentials invalid
             return res.status(401).json({ message: 'Invalid username or password' });
         }
-
-        // Generate a token for the user
-        const token = jwt.sign({ userId: user.userId, username: user.username }, 'your_jwt_secret', {
-            expiresIn: '1h', // Token expiration time
-        });
 
         // Respond with token and user details
         res.json({ token, userId: user.userId, username: user.username });

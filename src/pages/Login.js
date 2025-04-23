@@ -27,7 +27,7 @@ const Login = ({ onLogin }) => {
     } else {
       // Handle user login
       try {
-        const { token, userId, username: loggedInUsername } = await loginUser(username, password);
+        const { userId, username: loggedInUsername } = await loginUser(username, password);
 
         // Store userId in localStorage
         localStorage.setItem('userId', userId);

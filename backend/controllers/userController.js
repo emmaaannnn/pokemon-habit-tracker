@@ -1,5 +1,8 @@
-const { addUser, getAllUsers, addPokemonDataForUser } = require('../models/userModel');
-const jwt = require('jsonwebtoken');
+const { addUser, getAllUsers } = require('../models/userModel');
+const fs = require('fs');
+const path = require('path');
+
+const pokemonFilePath = path.resolve(__dirname, '../data/userPokemon.json');
 
 // Controller to register a new user
 const register = (req, res) => {
@@ -23,7 +26,29 @@ const register = (req, res) => {
     // Add new user to JSON file
     const newUser = addUser({ username, password });
 
-    addPokemonDataForUser(newUser.userId);
+    // Add Pokemon Party and Storage for the new user
+    const addPokemonDataForUser = (userId) => {
+      let pokemonData = [];
+      if (fs.existsSync(pokemonFilePath)) {
+        pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf-8'));
+      } else {
+        fs.writeFileSync(pokemonFilePath, JSON.stringify([], null, 2)); // Initialize the file
+        pokemonData = [];
+      }
+
+      // Add the new user's data to the Pokémon file
+      const newEntry = {
+        userId: Number(userId), // Ensure userId is numeric
+        party: [null, null, null, null, null, null], // Default empty party
+        storage: [] // Default empty storage
+      };
+
+      console.log('Adding new entry to userPokemon.json:', newEntry);
+      pokemonData.push(newEntry);
+      fs.writeFileSync(pokemonFilePath, JSON.stringify(pokemonData, null, 2));
+      console.log('Successfully updated userPokemon.json!');
+    };
+
 
     res.status(201).json({ message: 'User registered successfully!', userId: newUser.userId });
   } catch (error) {
@@ -45,11 +70,6 @@ const login = (req, res) => {
     if (!user) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
-
-    // Generate a token
-    const token = jwt.sign({ userId: user.userId, username: user.username }, 'your_jwt_secret', {
-      expiresIn: '1h', // Token expiration time
-    });
 
     res.json({ token, username: user.username, userId: user.userId });
   } catch (error) {

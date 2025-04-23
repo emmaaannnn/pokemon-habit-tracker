@@ -21,8 +21,10 @@ const saveUsers = (users) => {
 // Add a new user
 const addUser = (userData) => {
   const users = getAllUsers();
-  const newUserId = users.length ? Number(users[users.length - 1].userId) + 1 : 1; // Auto-increment userId
-  console.log('New User ID:', newUser.userId);
+  
+  // Ensure userId is numeric
+  const lastUserId = users.length ? Number(users[users.length - 1].userId) : 0; // Convert to number
+  const newUserId = lastUserId + 1; // Increment userId
 
   const newUser = { userId: newUserId, ...userData };
   users.push(newUser);
@@ -30,22 +32,4 @@ const addUser = (userData) => {
   return newUser;
 };
 
-// Write default Pokémon data to userPokemon.json
-const addPokemonDataForUser = (userId) => {
-  let pokemonData = [];
-  if (fs.existsSync(pokemonFilePath)) {
-    pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf-8'));
-  } else {
-    fs.writeFileSync(pokemonFilePath, JSON.stringify([], null, 2)); // Initialize the file
-  }
-  pokemonData.push({
-    userId: userId,
-    party: [null, null, null, null, null, null], // Default empty party
-    storage: [] // Default empty storage
-  });
-  fs.writeFileSync(pokemonFilePath, JSON.stringify(pokemonData, null, 2));
-  console.log('Successfully updated userPokemon.json!');
-};
-
-
-module.exports = { getAllUsers, saveUsers, addUser, addPokemonDataForUser };
+module.exports = { getAllUsers, saveUsers, addUser };

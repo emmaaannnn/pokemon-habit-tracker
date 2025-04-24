@@ -23,26 +23,28 @@ const HabitWeeklyList = ({ userId }) => {
       try {
         const userHabits = await fetchUserHabits(userId); // Fetch habits for the user
         const currentWeekDates = getCurrentWeekDates();
-
-        // Filter out null or invalid habits
-        const validHabits = userHabits.habits.filter((habit) => habit !== null);
-    
-        // Process habits to include weekly completion data
-        const weeklyProgress = validHabits.map((habit) => {
+  
+        // Map habits to include weekly completion data, handling null values
+        const weeklyProgress = userHabits.habits.map((habit) => {
+          if (habit === null) {
+            return null; // Preserve null values for empty spots
+          }
+  
           const weeklyCompletion = currentWeekDates.map((date) => ({
             date,
             completed: habit.completionHistory.daily[date] || false,
           }));
+  
           return { ...habit, weeklyCompletion };
         });
-
+  
         setHabits(weeklyProgress); // Updated state includes weekly completion data
       } catch (error) {
         console.error('Error fetching habits:', error);
         setError('Failed to fetch habits.');
       }
     };
-
+  
     fetchHabits();
   }, [userId]);
 
@@ -56,7 +58,6 @@ const HabitWeeklyList = ({ userId }) => {
 
   return (
     <div>
-      <h1>Weekly Habit Tracker</h1>
         <div className="HabitWeeklyList">
           {habits.map((habit, index) => (
             <HabitWeeklyCard key={index} habit={habit} />

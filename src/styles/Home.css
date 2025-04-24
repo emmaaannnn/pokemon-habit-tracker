@@ -33,7 +33,7 @@
     display: flex;
     position: fixed;
     align-items: center;
-    right: 0;
+    left:550px;
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
 }

@@ -2,11 +2,22 @@
     border: 2px solid #ddd; /* Light border to define the box */
     border-radius: 8px; /* Rounded corners for a polished look */
     padding: 15px; /* Space inside the box */
-    margin-bottom: 5%; /* Space between cards */
+    margin-bottom: 10px; /* Space between cards */
     background-color: #f8f9fa; /* Subtle background color */
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    width: 90%; /* Fixed width for all cards */
+    width: 100%; /* Fixed width for all cards */
+    max-width: 1000px;
     text-align: center; /* Center-align text inside the card */
     font-family: Arial, sans-serif; /* Set a clean font */
     height: 150px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space out items evenly */
+    align-items: center; /* Center-align items horizontally */
   }
+
+  .WeeklyProgress th, .WeeklyProgress td {
+    text-align: center; /* Center text in cells */
+    padding: 5px; /* Add space inside cells */
+  }
+  

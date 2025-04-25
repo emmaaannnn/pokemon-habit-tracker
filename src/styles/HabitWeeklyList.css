@@ -1,23 +1,33 @@
 .HabitWeeklyCard {
-    border: 2px solid #ddd; /* Light border to define the box */
-    border-radius: 8px; /* Rounded corners for a polished look */
-    padding: 15px; /* Space inside the box */
-    margin-bottom: 10px; /* Space between cards */
-    background-color: #f8f9fa; /* Subtle background color */
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    width: 100%; /* Fixed width for all cards */
-    max-width: 1000px;
-    text-align: center; /* Center-align text inside the card */
-    font-family: Arial, sans-serif; /* Set a clean font */
-    height: 150px; /* Fixed height for all cards */
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    justify-content: space-between; /* Space out items evenly */
-    align-items: center; /* Center-align items horizontally */
-  }
+  border: 2px solid #ddd; /* Light border to define the box */
+  border-radius: 8px; /* Rounded corners for a polished look */
+  padding: 15px; /* Space inside the box */
+  margin-bottom: 10px; /* Space between cards */
+  background-color: #f8f9fa; /* Subtle background color */
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  width: 100%; /* Fixed width for all cards */
+  text-align: center; 
+  height: 150px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  justify-content: space-between; /* Space out items evenly */
+  align-items: center; /* Center-align items horizontally */
+  gap: 20px; /* Adds space between cards */
+}
 
-  .WeeklyProgress th, .WeeklyProgress td {
-    text-align: center; /* Center text in cells */
-    padding: 5px; /* Add space inside cells */
-  }
+.HabitWeeklyCard h2 {
+  margin: 0; /* Remove extra margin for alignment */
+  text-align: center; /* Align header text to the left */
+  flex: 1; /* Make header occupy the left space */
+}
+
+.WeeklyProgress {
+  flex: 2; /* Table takes up more space on the right */
+  width: 100%; /* Ensure table stays within its container */
+}
+
+.WeeklyProgress th, .WeeklyProgress td {
+  text-align: center; /* Center text in cells */
+  padding: 5px; /* Add space inside cells */
+}
   

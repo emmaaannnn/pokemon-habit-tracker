@@ -29,3 +29,47 @@
   top: 50%;
   transform: translateY(-50%); /* Center vertically */
 }
+
+.PokemonStorage {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  left: 180px;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.PokemonGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Creates 3 columns */
+  grid-template-rows: repeat(5, auto); /* 5 fixed rows */
+  gap: 5px; /* Space between items */
+  padding: 20px;
+  border: 2px solid #ddd; /* Adds a border to the overall grid */
+  border-radius: 10px; /* Rounds edges */
+  background-color: #f0f0f0; /* Subtle background for the grid container */
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Depth effect */
+}
+
+.PokemonSlot {
+  text-align: center;
+  padding: 10px;
+  background-color: #fff; /* White background for each slot */
+  border: 1px solid #ddd; /* Border around each slot */
+  border-radius: 8px; /* Rounded corners for slots */
+  height: 150px; /* Fixed height for each slot */
+  width: 150px; /* Fixed width for each slot */
+}
+
+.PokemonImage {
+  max-width: 100px; /* Restrict image size */
+  margin-bottom: 10px; /* Space below image */
+}
+
+.PokemonSlot p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}

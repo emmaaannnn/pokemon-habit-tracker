@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header.js';
 import Navbar from '../components/NavBar.js';
 import PokemonParty from '../components/PokemonParty.js';
+import PokemonStorage from '../components/PokemonStorage.js';
 import '../styles/Pokemon.css';
 
 const Pokemon = ({ setCurrentPage }) => {
@@ -16,6 +17,10 @@ const Pokemon = ({ setCurrentPage }) => {
 
       <div className='NoHabitsParty'>
         <PokemonParty/>
+      </div>
+
+      <div className='PokemonStorage'>
+        <PokemonStorage/>
       </div>
     </div>
   );

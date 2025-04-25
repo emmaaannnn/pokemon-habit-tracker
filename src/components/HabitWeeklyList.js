@@ -4,6 +4,7 @@ import { fetchUserHabits } from '../services/api';
 
 const HabitWeeklyList = ({ userId }) => {
   const [habits, setHabits] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   // Utility function to get current week's dates
@@ -39,9 +40,11 @@ const HabitWeeklyList = ({ userId }) => {
         });
   
         setHabits(weeklyProgress); // Updated state includes weekly completion data
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching habits:', error);
         setError('Failed to fetch habits.');
+        setLoading(false);
       }
     };
   
@@ -54,6 +57,10 @@ const HabitWeeklyList = ({ userId }) => {
 
   if (habits.length === 0) {
     return <p>No habits to display.</p>;
+  }
+
+  if (loading) {
+    return <p>Loading your Habits...</p>; // Show loading state
   }
 
   return (

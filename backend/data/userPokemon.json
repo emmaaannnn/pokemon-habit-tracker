@@ -2,31 +2,97 @@
   {
     "userId": 1,
     "party": [
-      { "slot": 1, "name": "Pikachu", "level": 10, "xp": 45 },
-      { "slot": 2, "name": "Bulbasaur", "level": 12, "xp": 25 },
-      { "slot": 3, "name": "Charmander", "level": 11, "xp": 10 },
-      { "slot": 4, "name": "Squirtle", "level": 15, "xp": 90 },
+      {
+        "slot": 1,
+        "name": "Pikachu",
+        "level": 10,
+        "xp": 45
+      },
+      {
+        "slot": 2,
+        "name": "Bulbasaur",
+        "level": 12,
+        "xp": 25
+      },
+      {
+        "slot": 3,
+        "name": "Charmander",
+        "level": 11,
+        "xp": 10
+      },
+      {
+        "slot": 4,
+        "name": "Squirtle",
+        "level": 15,
+        "xp": 90
+      },
       null,
       null
     ],
     "storage": [
-      { "name": "Eevee", "level": 5, "xp": 12 },
-      { "name": "Metapod", "level": 7, "xp": 25 }
+      {
+        "name": "Eevee",
+        "level": 5,
+        "xp": 12
+      },
+      {
+        "name": "Metapod",
+        "level": 7,
+        "xp": 25
+      }
     ]
   },
   {
     "userId": 2,
     "party": [
-      { "slot": 1, "name": "Pikachu", "level": 10, "xp": 45 },
-      { "slot": 2, "name": "Arceus", "level": 12, "xp": 25 },
-      { "slot": 3, "name": "Lugia", "level": 11, "xp": 10 },
-      { "slot": 4, "name": "Ceruledge", "level": 15, "xp": 90 },
-      { "slot": 5, "name": "Mew", "level": 15, "xp": 90 },
-      { "slot": 6, "name": "Cinderace", "level": 15, "xp": 90 }
+      {
+        "slot": 1,
+        "name": "Pikachu",
+        "level": 10,
+        "xp": 45
+      },
+      {
+        "slot": 2,
+        "name": "Arceus",
+        "level": 12,
+        "xp": 25
+      },
+      {
+        "slot": 3,
+        "name": "Lugia",
+        "level": 11,
+        "xp": 10
+      },
+      {
+        "slot": 4,
+        "name": "Ceruledge",
+        "level": 15,
+        "xp": 90
+      },
+      {
+        "slot": 5,
+        "name": "Mew",
+        "level": 15,
+        "xp": 90
+      },
+      {
+        "slot": 6,
+        "name": "Cinderace",
+        "level": 15,
+        "xp": 90
+      }
     ],
     "storage": [
-      { "name": "Eevee", "level": 5, "xp": 12 },
-      { "name": "Metapod", "level": 7, "xp": 25 }
+      {
+        "name": "Eevee",
+        "level": 5,
+        "xp": 12
+      },
+      {
+        "name": "Metapod",
+        "level": 7,
+        "xp": 25
+      }
     ]
   },
   {
@@ -39,7 +105,6 @@
       null,
       null
     ],
-    "storage": [
-    ]
+    "storage": []
   }
 ]

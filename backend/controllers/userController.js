@@ -45,30 +45,11 @@
 //   }
 // };
 
-// // Controller to log in a user
-// const login = (req, res) => {
-//   const { username, password } = req.body;
-
-//   try {
-//     const users = getAllUsers();
-
-//     // Find a matching user
-//     const user = users.find((u) => u.username === username && u.password === password);
-
-//     if (!user) {
-//       return res.status(401).json({ message: 'Invalid username or password' });
-//     }
-
-//     res.json({ token, username: user.username, userId: user.userId });
-//   } catch (error) {
-//     console.error('Error logging in:', error.message);
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// };
-
-// module.exports = { register, login };
-
 const userModel = require('../models/userModel');
+const fs = require('fs');
+const path = require('path');
+
+const pokemonFilePath = path.resolve(__dirname, '../data/userPokemon.json');
 
 // Get all users
 const getUsers = (req, res) => {
@@ -115,6 +96,22 @@ const register = (req, res) => {
         }
 
         const newUser = userModel.addUser({ username, password });
+
+        let pokemonData = fs.existsSync(pokemonFilePath)
+        ? JSON.parse(fs.readFileSync(pokemonFilePath, 'utf-8'))
+        : [];
+
+        // Create the new Pokémon entry
+        const newEntry = [{
+        userId: Number(newUser.userId),
+        party: [null, null, null, null, null, null],
+        storage: [],
+        }];
+
+        pokemonData.push(newEntry);
+
+        // Write to `userPokemon.json`
+        fs.writeFileSync(pokemonFilePath, JSON.stringify(pokemonData, null, 2));
 
         res.status(201).json({ message: 'User registered successfully!', userId: newUser.userId });
     } catch (error) {

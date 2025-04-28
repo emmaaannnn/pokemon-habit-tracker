@@ -28,5 +28,18 @@
       { "name": "Eevee", "level": 5, "xp": 12 },
       { "name": "Metapod", "level": 7, "xp": 25 }
     ]
+  },
+  {
+    "userId": 3,
+    "party": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "storage": [
+    ]
   }
 ]

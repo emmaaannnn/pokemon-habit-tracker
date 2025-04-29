@@ -11,27 +11,26 @@
     position: relative;
   }
 
-.NavbarMessage {
+.HomeNavbarMessage {
     color: #000000; /* Squirtle blue */
     margin-left: 10px;
-    position: absolute;
-    top: 5%;
+    position: fixed;
+    top: 6%;
     z-index: 200;
     width: 295px;
 }
 
 .PartySection {
     display: flex;
-    position: fixed;
+    position: relative;
     align-items: center;
     left: 350px;
-    top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    top: 225px
 }
 
 .HabitSection {
     display: flex;
-    position: fixed;
+    position: relative;
     align-items: center;
     left:540px;
     top: 50%;

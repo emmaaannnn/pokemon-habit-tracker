@@ -8,7 +8,7 @@ const PokemonCard = ({ name, level, xp, sprite }) => {
       {name !== 'Empty Slot' ? (
         <div>
           <h4>{name}</h4>
-          <img src={sprite} alt={name} style={{ width: '100px', height: '100px' }} />
+          <img src={sprite} alt={name}/>
           <p>Level: {level}</p>
           <p>XP: {xp}</p>
         </div>

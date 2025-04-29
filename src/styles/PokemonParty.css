@@ -20,6 +20,8 @@
 
   .PokemonCard img {
     margin: 1px 0;
+    height: 100px;
+    width: 100px;
   }
   
   .PokemonCard p {

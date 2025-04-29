@@ -14,12 +14,10 @@ const Home = ({ setCurrentPage }) => {
     <div className='HomeScreen'>
       <Header/>
       <Navbar onSelect={setCurrentPage} />
-      <div className='NavbarMessage'>
+      <div className='HomeNavbarMessage'>
         <h4>Welcome trainer!</h4>
         <p>Your habits train not only you, but your Pokémon. Together, you grow stronger and evolve towards greatness!</p>
       </div>
-
-      <h1 className='HomeTitle'>Your Pokémon Party</h1>
 
       <div className='PartySection'>
         <PokemonParty/>

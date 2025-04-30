@@ -106,6 +106,7 @@ const register = (req, res) => {
         userId: Number(newUser.userId),
         party: [null, null, null, null, null, null],
         storage: [],
+        needsStarterSelection: true,
         };
 
         pokemonData.push(newEntry);

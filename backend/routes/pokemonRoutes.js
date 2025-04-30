@@ -1,6 +1,7 @@
 const express = require('express');
 const { getUserPokemon, addPokemon, swapPokemon } = require('../controllers/pokemonController');
 const { getPokemonData } = require('../controllers/pokemonController');
+const { selectStarterPokemon } = require('../controllers/pokemonController');
 
 
 const router = express.Router();
@@ -16,6 +17,9 @@ router.post('/swap', swapPokemon);
 
 // Route to get Pokémon details from PokéAPI
 router.get('/details/:pokemonName', getPokemonData);
+
+// Route to select starter Pokémon
+router.post('/select-starter', selectStarterPokemon);
 
 
 module.exports = router;

@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/HabitWeeklyList.css';
+import { updateHabit } from '../services/api';;
 
-const HabitWeeklyCard = ({ habit }) => {
+const HabitWeeklyCard = ({ habit, updateHabitCompletion }) => {
   // Check if the habit is null or invalid
   if (!habit) {
     return (
@@ -12,6 +13,27 @@ const HabitWeeklyCard = ({ habit }) => {
   }
 
   const { name, weeklyCompletion } = habit;
+
+
+  const handleCompletionToggle = async (day) => {
+    const updatedCompletion = !day.completed;
+  
+    try {
+      // Send update to backend
+      const updatedHabit = await updateHabit(habit.userId, { 
+        habitId: habit.id, 
+        date: day.date, 
+        completed: updatedCompletion 
+      });
+  
+      // Update UI state (optional: if backend doesn't send updates immediately)
+      updateHabitCompletion(habit.id, day.date, updatedCompletion);
+    } catch (error) {
+      console.error('Error updating habit completion:', error.message);
+    }
+  };
+  
+
 
   return (
     <div className="HabitWeeklyCard">
@@ -30,16 +52,16 @@ const HabitWeeklyCard = ({ habit }) => {
         </thead>
         <tbody>
           <tr>
-            {/* Dates under each day */}
             {weeklyCompletion.map((day) => (
               <td key={`date-${day.date}`}>{day.date}</td>
             ))}
           </tr>
           <tr>
-            {/* Tick or cross under each date */}
             {weeklyCompletion.map((day) => (
               <td key={`completed-${day.date}`}>
-                {day.completed ? '✔️' : '❌'}
+                <button onClick={() => handleCompletionToggle(day)}>
+                  {day.completed ? '✔️' : '❌'}
+                </button>
               </td>
             ))}
           </tr>
@@ -48,5 +70,6 @@ const HabitWeeklyCard = ({ habit }) => {
     </div>
   );
 };
+
 
 export default HabitWeeklyCard;

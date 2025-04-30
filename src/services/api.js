@@ -32,6 +32,17 @@ export const registerUser = async (username, password) => {
   }
 };
 
+// Select a starter Pokémon for the user
+export const selectStarterPokemon = async (userId, starterPokemon) => {
+  try {
+    const response = await API.post('/pokemon/select-starter', { userId, starterPokemon });
+    return response.data; // Updated party data after selecting a starter
+  } catch (error) {
+    console.error('Error selecting starter Pokémon:', error.response?.data || error.message);
+    throw new Error(error.response?.data?.message || 'Failed to select starter Pokémon');
+  }
+};
+
 // Fetch user's Pokémon party
 export const getUserPokemonParty = async (userId) => {
   try {

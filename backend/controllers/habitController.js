@@ -37,6 +37,29 @@ const updateHabit = (req, res) => {
   }
 };
 
+// const updateHabit = (req, res) => {
+//   const { userId } = req.params;
+//   const { habitId, date } = req.body;
+
+//   if (!userId) {
+//     console.error('User ID is missing in request!');
+//     return res.status(400).json({ message: 'User ID is required' });
+//   }
+
+//   const userData = getHabitsForUser(userId);
+//   const habit = userData.habits.find((h) => h?.habitId === parseInt(habitId));
+
+//   if (!habit) {
+//     console.error(`Habit not found: habitId=${habitId}, userId=${userId}`);
+//     return res.status(404).json({ message: 'Habit not found' });
+//   }
+
+//   habit.completionHistory.daily[date] = true;
+//   saveHabitsForUser(userId, userData);
+
+//   res.json({ message: 'Habit updated successfully', habit });
+// };
+
 // Delete a habit for a user
 const deleteHabit = (req, res) => {
   const { userId, habitId } = req.params;

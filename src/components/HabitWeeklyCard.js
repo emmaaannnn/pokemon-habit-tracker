@@ -16,22 +16,22 @@ const HabitWeeklyCard = ({ habit, updateHabitCompletion }) => {
 
 
   const handleCompletionToggle = async (day) => {
-    const updatedCompletion = !day.completed;
+    console.log(`Sending request: userId=${habit.userId}, habitId=${habit.id}, date=${day.date}`); // Debugging
   
     try {
-      // Send update to backend
-      const updatedHabit = await updateHabit(habit.userId, { 
-        habitId: habit.id, 
-        date: day.date, 
-        completed: updatedCompletion 
-      });
+      if (!habit.userId || !habit.id) {
+        console.error('Missing userId or habitId');
+        return;
+      }
   
-      // Update UI state (optional: if backend doesn't send updates immediately)
-      updateHabitCompletion(habit.id, day.date, updatedCompletion);
+      await updateHabit(habit.userId, { habitId: habit.id, date: day.date });
+  
+      updateHabitCompletion(habit.id, day.date, true);
     } catch (error) {
-      console.error('Error updating habit completion:', error.message);
+      console.error('Error updating habit:', error.message);
     }
   };
+  
   
 
 

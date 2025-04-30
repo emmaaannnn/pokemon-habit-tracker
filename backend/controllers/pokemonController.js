@@ -1,6 +1,42 @@
 const { readPokemonData, writePokemonData } = require('../models/pokemonModel');
 const { getPokemonDetails } = require('../services/pokeApiService');
 
+// Select a starter Pokémon for the user
+const selectStarterPokemon = (req, res) => {
+  const { userId, starterPokemon } = req.body;
+
+  if (!userId || !starterPokemon) {
+    return res.status(400).json({ message: 'User ID and starter Pokémon are required!' });
+  }
+
+  try {
+    const data = readPokemonData();
+    const userEntry = data.find((user) => user.userId === Number(userId));
+
+    if (!userEntry) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (!userEntry.party.every((slot) => slot === null)) {
+      return res.status(400).json({ message: 'User has already selected a starter' });
+    }
+
+    // Assign starter Pokémon to the first slot in their party
+    userEntry.party[0] = {
+      name: starterPokemon,
+      level: 5,
+      xp: 0,
+    };
+
+    // Save the updated data
+    writePokemonData(data);
+
+    res.status(200).json({ message: 'Starter Pokémon selected successfully!', party: userEntry.party });
+  } catch (error) {
+    console.error('Error selecting starter Pokémon:', error.message);
+    res.status(500).json({ message: 'Server error during starter selection' });
+  }
+};
 
 // Endpoint to get detailed Pokémon data
 const getPokemonData = async (req, res) => {
@@ -95,4 +131,4 @@ const swapPokemon = (req, res) => {
   }
 };
 
-module.exports = { getUserPokemon, addPokemon, swapPokemon, getPokemonData };
+module.exports = { getUserPokemon, addPokemon, swapPokemon, getPokemonData, selectStarterPokemon };

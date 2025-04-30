@@ -4,8 +4,7 @@
         "habitId": 1,
         "name": "Morning Exercise",
         "linkedSlot": 1,
-        "streak": 5,
-        "xpReward": 50,
+        "frequency": 4,
         "completionHistory": {
           "daily": {
             "2025-04-26": true,
@@ -18,8 +17,7 @@
         "habitId": 3,
         "name": "Reading Before Bed",
         "linkedSlot": 2,
-        "streak": 10,
-        "xpReward": 30,
+        "frequency": 4,
         "completionHistory": {
           "daily": {
             "2025-04-25": true,
@@ -31,8 +29,7 @@
         "habitId": 2,
         "name": "Drink Water",
         "linkedSlot": 3,
-        "streak": 10,
-        "xpReward": 30,
+        "frequency": 5,
         "completionHistory": {
           "daily": {
             "2025-04-21": true,
@@ -44,8 +41,7 @@
         "habitId": 4,
         "name": "Eat Healthy",
         "linkedSlot": 4,
-        "streak": 10,
-        "xpReward": 30,
+        "frequency": 6,
         "completionHistory": {
           "daily": {
             "2025-04-25": true,

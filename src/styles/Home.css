@@ -3,12 +3,15 @@
 .HomeScreen {
     font-family: 'Verdana', sans-serif;
     background-image: url('https://i.imgur.com/Q87wT7i.jpeg');
-    background-size: cover;
+    background-size: auto;
     background-position: center;
+    background-repeat: repeat;
     height: 100vh;
     width: 100vw;
     display: flex;
     position: relative;
+    overflow: auto;
+
   }
 
 .HomeNavbarMessage {
@@ -32,7 +35,6 @@
     display: flex;
     position: relative;
     align-items: center;
-    left:540px;
-    top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    left: 355px;
+    top: 225px
 }

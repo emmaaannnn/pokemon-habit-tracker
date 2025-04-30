@@ -46,7 +46,7 @@ export const getUserPokemonParty = async (userId) => {
 // Fetch user's habits
 export const fetchUserHabits = async (userId) => {
   try {
-    const response = await API.get(`/users/${userId}/habits`);
+    const response = await API.get(`/habits/${userId}/habits`);
     return response.data; // Returns the user's habit data
   } catch (error) {
     console.error('Error fetching habits:', error.response?.data || error.message);
@@ -57,7 +57,7 @@ export const fetchUserHabits = async (userId) => {
 // Add or update a habit for the user
 export const updateHabit = async (userId, habitData) => {
   try {
-    const response = await API.post(`/users/${userId}/habits`, habitData);
+    const response = await API.post(`/habits/${userId}/habits`, habitData);
     return response.data; // Updated habit data
   } catch (error) {
     console.error('Error updating habit:', error.response?.data || error.message);
@@ -68,7 +68,7 @@ export const updateHabit = async (userId, habitData) => {
 // Delete a habit for the user
 export const deleteHabit = async (userId, habitId) => {
   try {
-    const response = await API.delete(`/users/${userId}/habits/${habitId}`);
+    const response = await API.delete(`/habits/${userId}/habits/${habitId}`);
     return response.data; // Remaining habits after deletion
   } catch (error) {
     console.error('Error deleting habit:', error.response?.data || error.message);

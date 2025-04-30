@@ -102,16 +102,27 @@ const register = (req, res) => {
         : [];
 
         // Create the new Pokémon entry
-        const newEntry = [{
+        const newEntry = {
         userId: Number(newUser.userId),
         party: [null, null, null, null, null, null],
         storage: [],
-        }];
+        };
 
         pokemonData.push(newEntry);
 
         // Write to `userPokemon.json`
         fs.writeFileSync(pokemonFilePath, JSON.stringify(pokemonData, null, 2));
+
+        // Create a new habits JSON file for the user
+        const habitsFilePath = path.join(__dirname, '../data/', `habits_user${newUser.userId}.json`);
+
+        const defaultHabits = {
+            habits: [null, null, null, null, null, null]
+        };
+
+        // Write the initial empty habits file
+        fs.writeFileSync(habitsFilePath, JSON.stringify(defaultHabits, null, 2));
+        
 
         res.status(201).json({ message: 'User registered successfully!', userId: newUser.userId });
     } catch (error) {

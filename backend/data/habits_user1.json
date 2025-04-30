@@ -4,13 +4,15 @@
       "habitId": 1,
       "name": "Morning Exercise",
       "linkedSlot": 1,
-      "streak": 5,
-      "xpReward": 50,
+      "frequency": 4,
       "completionHistory": {
         "daily": {
           "2025-04-26": true,
           "2025-04-15": false,
-          "2025-04-24": true
+          "2025-04-24": true,
+          "2025-04-27": true,
+          "2025-04-28": true,
+          "2025-04-29": true
         }
       }
     },
@@ -18,12 +20,13 @@
       "habitId": 3,
       "name": "Reading Before Bed",
       "linkedSlot": 2,
-      "streak": 10,
-      "xpReward": 30,
+      "frequency": 4,
       "completionHistory": {
         "daily": {
           "2025-04-25": true,
-          "2025-04-23": true
+          "2025-04-23": true,
+          "2025-04-29": true,
+          "2025-04-30": true
         }
       }
     },
@@ -31,12 +34,12 @@
       "habitId": 2,
       "name": "Drink Water",
       "linkedSlot": 3,
-      "streak": 10,
-      "xpReward": 30,
+      "frequency": 5,
       "completionHistory": {
         "daily": {
           "2025-04-21": true,
-          "2025-04-20": true
+          "2025-04-20": true,
+          "2025-05-01": true
         }
       }
     },
@@ -44,12 +47,13 @@
       "habitId": 4,
       "name": "Eat Healthy",
       "linkedSlot": 4,
-      "streak": 10,
-      "xpReward": 30,
+      "frequency": 6,
       "completionHistory": {
         "daily": {
           "2025-04-25": true,
-          "2025-04-22": true
+          "2025-04-22": true,
+          "2025-05-02": true,
+          "2025-05-03": true
         }
       }
     },

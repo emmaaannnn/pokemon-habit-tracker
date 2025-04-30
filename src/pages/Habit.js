@@ -3,6 +3,7 @@ import Header from '../components/Header.js';
 import Navbar from '../components/NavBar.js';
 import '../styles/Habit.css';
 import PokemonParty from '../components/PokemonParty.js';
+import HabitMonthlyList from '../components/HabitMonthlyList.js';
 
 const Habit = ({ setCurrentPage }) => {
   return (
@@ -15,6 +16,9 @@ const Habit = ({ setCurrentPage }) => {
       </div>
       <div className='NoHabitsParty'>
         <PokemonParty/>
+      </div>
+      <div className='HabitMonthly'>
+        <HabitMonthlyList/>
       </div>
     </div>
   );

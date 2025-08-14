@@ -11,7 +11,7 @@ services:
       - PYTHONUNBUFFERED=1
 
   frontend:
-    build: ./website
+    build: ./frontend/website
     ports:
       - "3000:80"
     depends_on:

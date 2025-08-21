@@ -1,14 +1,14 @@
 //
-//  AppApp.swift
-//  App
+//  iosApp.swift
+//  ios
 //
-//  Created by Emmanuel Almonte on 10/8/2025.
+//  Created by Emmanuel Almonte on 21/8/2025.
 //
 
 import SwiftUI
 
 @main
-struct AppApp: App {
+struct iosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

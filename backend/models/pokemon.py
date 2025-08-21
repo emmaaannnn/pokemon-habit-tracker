@@ -6,7 +6,7 @@ class Pokemon(Base):
     __tablename__ = "pokemons"
 
     id = Column(Integer, primary_key=True, index=True)
-    species = Column(String, nullable=False)
+
     nickname = Column(String)
     level = Column(Integer, default=1)
     xp = Column(Integer, default=0)

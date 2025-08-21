@@ -30,19 +30,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		65E881E32E5722850007BD79 /* ios */ = {
+		65E881E32E5722850007BD79 /* app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ios;
+			path = app;
 			sourceTree = "<group>";
 		};
-		65E881F12E5722860007BD79 /* iosTests */ = {
+		65E881F12E5722860007BD79 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iosTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		65E881FB2E5722860007BD79 /* iosUITests */ = {
+		65E881FB2E5722860007BD79 /* UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iosUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		65E881D82E5722850007BD79 = {
 			isa = PBXGroup;
 			children = (
-				65E881E32E5722850007BD79 /* ios */,
-				65E881F12E5722860007BD79 /* iosTests */,
-				65E881FB2E5722860007BD79 /* iosUITests */,
+				65E881E32E5722850007BD79 /* app */,
+				65E881F12E5722860007BD79 /* Tests */,
+				65E881FB2E5722860007BD79 /* UITests */,
 				65E881E22E5722850007BD79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				65E881E32E5722850007BD79 /* ios */,
+				65E881E32E5722850007BD79 /* app */,
 			);
 			name = ios;
 			packageProductDependencies = (
@@ -131,7 +131,7 @@
 				65E881F02E5722860007BD79 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				65E881F12E5722860007BD79 /* iosTests */,
+				65E881F12E5722860007BD79 /* Tests */,
 			);
 			name = iosTests;
 			packageProductDependencies = (
@@ -154,7 +154,7 @@
 				65E881FA2E5722860007BD79 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				65E881FB2E5722860007BD79 /* iosUITests */,
+				65E881FB2E5722860007BD79 /* UITests */,
 			);
 			name = iosUITests;
 			packageProductDependencies = (

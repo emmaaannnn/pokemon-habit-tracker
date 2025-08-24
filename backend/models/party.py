@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from app.database import Base
+from backend.database import Base
 
 class Party(Base):
     __tablename__ = "parties"

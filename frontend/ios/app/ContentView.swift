@@ -14,7 +14,23 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+                .foregroundStyle(.red)
         }
+        .padding()
+        
+        VStack {
+            HStack{
+                Image(systemName: "pencil")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("SwiftUI")
+                    .fontWeight(.bold)
+                    .foregroundColor(.blue)
+                    
+                    
+            }
+        }
+            
         .padding()
     }
 }

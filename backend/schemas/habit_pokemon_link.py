@@ -1,13 +1,25 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from typing import Optional
 
-# Base Model
+# Base schema
 class HabitPokemonLinkBase(BaseModel):
+    habit_id: int
+    pokemon_id: int
 
-# Creeate
+# Create schema
 class HabitPokemonLinkCreate(HabitPokemonLinkBase):
+    pass
 
-# Update
-class HabitPokemonLinkUpdate(HabitPokemonLinkBase):
+# Update schema (optional fields for patching)
+class HabitPokemonLinkUpdate(BaseModel):
+    habit_id: Optional[int] = None
+    pokemon_id: Optional[int] = None
 
-# Read
+# Read schema
 class HabitPokemonLinkRead(HabitPokemonLinkBase):
+    id: int
+    habit: Optional[HabitRead]
+    pokemon: Optional[PokemonRead]
+
+    class Config:
+        orm_mode = True

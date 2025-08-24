@@ -1,25 +1,28 @@
-from pydantic import BaseModel, Field
-from typing import Optional
+from pydantic import BaseModel
+from typing import Optional, List
+from datetime import datetime
+from backend.schemas.habit import HabitRead
+from backend.schemas.pokemon import PokemonRead
+from backend.schemas.party import PartyRead
 
-# Base Model
+## Base schema (shared fields)
 class UserBase(BaseModel):
-    id: int
     username: str
 
-    habits: Optional[list]
-    pokemons: Optional[list]
-    party: Optional[dict]
+# Create schema
+class UserCreate(BaseModel):
+    username: str
 
-# Creeate
-class UserCreate(UserBase):
-    pass
+# Update schema (partial updates)
+class UserUpdate(BaseModel):
+    username: Optional[str] = None
 
-# Update
-class UserUpdate(UserBase):
-    habits: Optional[list]
-    pokemons: Optional[list]
-    party: Optional[dict]
-
-# Read
+# Read schema (includes nested relationships)
 class UserRead(UserBase):
-    pass
+    id: int
+    habits: List[HabitRead] = []
+    pokemons: List[PokemonRead] = []
+    party: Optional[PartyRead] = None
+
+    class Config:
+        orm_mode = True

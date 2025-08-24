@@ -16,3 +16,5 @@ class Habit(Base):
 
     user = relationship("User", back_populates="habits")
     pokemons = relationship("HabitPokemonLink", back_populates="habit", cascade="all, delete")
+
+    logs = relationship("HabitLog", back_populates="habit", cascade="all, delete")

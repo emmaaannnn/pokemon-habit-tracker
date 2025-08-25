@@ -13,6 +13,7 @@ class InventoryUpdate(BaseModel):
 
 class InventoryRead(InventoryBase):
     id: int
+    item_name: str
     user_id: int
 
     class Config:

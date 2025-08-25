@@ -16,13 +16,17 @@ class UserCreate(BaseModel):
 # Update schema (partial updates)
 class UserUpdate(BaseModel):
     username: Optional[str] = None
+    currency: Optional[int] = None
 
 # Read schema (includes nested relationships)
 class UserRead(UserBase):
     id: int
+    currency: int
+
     habits: List[HabitRead] = []
     pokemons: List[PokemonRead] = []
     party: Optional[PartyRead] = None
+    inventory: List[InventoryRead] = []
 
     class Config:
         orm_mode = True

@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from backend.database import Base
 
-class InventoryItem(Base):
+class Inventory(Base):
     __tablename__ = "inventory_items"
 
     id = Column(Integer, primary_key=True)

@@ -1,5 +1,5 @@
 import Foundation
 
-struct PokemonViewModel: ObservableObject {
+class PokemonViewModel: ObservableObject {
 
 }

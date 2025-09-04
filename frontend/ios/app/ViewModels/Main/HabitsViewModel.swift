@@ -1,13 +1,5 @@
-import SwiftUI
+import Foundation
 
-struct HabitsViewModel: View {
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text("Welcome Trainer!")
-                    .font(.title)
-            }
-            .navigationTitle("Habits")
-        }
-    }
+class HabitsViewModel: ObservableObject {
+
 }

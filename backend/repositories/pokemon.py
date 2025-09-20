@@ -35,3 +35,9 @@ def delete_pokemon(db: Session, pokemon_id: int) -> bool:
 
 def list_all_pokemons(db: Session, skip: int = 0, limit: int = 100) -> list[Pokemon]:
     return db.query(Pokemon).offset(skip).limit(limit).all()
+
+def get_user_party(db: Session, user_id: int) -> list[Pokemon]:
+    return db.query(Pokemon).filter(Pokemon.user_id == user_id, Pokemon.is_in_party == True).all()
+
+def get_user_box(db: Session, user_id: int) -> list[Pokemon]:
+    return db.query(Pokemon).filter(Pokemon.user_id == user_id, Pokemon.is_in_party == False).all()

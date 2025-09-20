@@ -27,6 +27,7 @@ class PokemonRead(BaseModel):
     level: int
     xp: int
     is_in_party: bool
+    is_shiny: bool
     user_id: int
 
     class Config:

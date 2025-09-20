@@ -6,9 +6,10 @@ from backend.services.pokemon_api import (
 )
 
 
-def generate_random_pokemon(level_range: tuple = (1, 40)) -> dict:
+def generate_random_pokemon(level_range: tuple = (1, 40), shiny_chance: float = 0.0001) -> dict:
     """
     Generates a random non-legendary Pokémon encounter using the API service.
+    Has a small chance to be shiny.
     """
     pool = get_non_legendary_pokemon_pool(max_level=level_range[1])
     if not pool:
@@ -16,10 +17,12 @@ def generate_random_pokemon(level_range: tuple = (1, 40)) -> dict:
 
     chosen = random.choice(pool)
     level = random.randint(level_range[0], level_range[1])
+    is_shiny = random.random() < shiny_chance  # 1% chance by default
 
     return {
         "name": chosen["name"],
-        "level": level
+        "level": level,
+        "is_shiny": is_shiny
     }
 
 def generate_legendary_encounter(level_range: tuple = (50, 70)) -> dict:

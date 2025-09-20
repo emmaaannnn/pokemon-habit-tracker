@@ -11,6 +11,7 @@ class Pokemon(Base):
     level = Column(Integer, default=1)
     xp = Column(Integer, default=0)
     is_in_party = Column(Boolean, default=False)
+    is_shiny = Column(Boolean, default=False)
 
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="pokemons")

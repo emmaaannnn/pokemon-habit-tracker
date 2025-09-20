@@ -42,3 +42,27 @@ def delete_inventory_item(db: Session, inventory_id: int) -> bool:
     db.delete(inventory)
     db.commit()
     return True
+
+def consume_inventory_item(db: Session, inventory: Inventory, amount: int = 1) -> Inventory | None:
+    if inventory.quantity < amount:
+        return None
+    inventory.quantity -= amount
+    if inventory.quantity == 0:
+        db.delete(inventory)
+    else:
+        db.commit()
+        db.refresh(inventory)
+    return inventory
+
+def add_or_increment_inventory_item(db: Session, user_id: int, item_name: str, amount: int = 1) -> Inventory:
+    inventory = get_inventory_by_item_name(db, user_id, item_name)
+    if inventory:
+        inventory.quantity += amount
+        db.commit()
+        db.refresh(inventory)
+    else:
+        inventory = Inventory(user_id=user_id, item_name=item_name, quantity=amount)
+        db.add(inventory)
+        db.commit()
+        db.refresh(inventory)
+    return inventory
